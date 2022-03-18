@@ -10,10 +10,10 @@ export default function SimpleContainer() {
             </div>
             <nav>
                 <ul className="navMenu">
-                    <li><Button>Inicio</Button></li>
-                    <li><Button>Productos</Button></li>
-                    <li><Button>Contacto</Button></li>
-                    <li><Button>La Empresa</Button></li>
+                    <li><Button>Gatos</Button></li>
+                    <li><Button>Perros</Button></li>
+                    <li><Button>Cachorros</Button></li>
+                    <li><Button>Otros</Button></li>
                 </ul>
             </nav>
         </header>

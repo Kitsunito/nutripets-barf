@@ -7,9 +7,9 @@ header.main-header{
   box-shadow: 1px 5px 15px #81818129;
 }
 
-.nav-img {
+.img-header {
   border-radius: 50%;
-
+  width: 100%
 }
 
 ul.navMenu {
