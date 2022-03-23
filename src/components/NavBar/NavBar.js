@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import './NavBar.css';
-import ColorBadge from '../ShoppingCart/ShoppingCart';
+import ColorBadge from '../ShoppingCartIcon/ShoppingCartIcon';
 
 export default function SimpleContainer() {
     return (
