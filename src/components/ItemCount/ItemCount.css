@@ -1,0 +1,10 @@
+.item-count{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.display-count {
+    width: 30px;
+}
