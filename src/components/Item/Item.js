@@ -1,11 +1,10 @@
 import CardMUI from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import ItemCount from '../ItemCount/ItemCount';
-import './Card.css';
+import './Item.css';
 import Button from '@mui/material/Button';
 
-const Card = ({name, category, presentation, price, stock}) => {
+const Item = ({name, category, presentation, price, stock, pictureURL, description}) => {
 
     return (
         <CardMUI className="product-card">
@@ -20,11 +19,12 @@ const Card = ({name, category, presentation, price, stock}) => {
                     Presentación: {presentation}
                 </Typography>
                 <Typography variant="h6" className="text-center">$ {price}</Typography>
-                <ItemCount stock={stock}/>
-                <Button variant="outlined" className="text-center">Agregar al carrito</Button>
+                <Typography className="text-center" sx={{ fontSize: 13 }} color="text.secondary" gutterBottom>
+                    Stock Disponible: {stock}</Typography>
+                <Button variant="outlined" className="text-center product-button">Ver producto</Button>
             </CardContent>
         </CardMUI>
     )
 }
 
-export default Card;
+export default Item;

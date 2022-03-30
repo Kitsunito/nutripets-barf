@@ -1,15 +1,13 @@
 import './ItemListContainer.css';
-import Card from '../Card/Card'
+import ItemList from '../ItemList/ItemList';
 
 
 const ItemListcontainer = ({greetings}) => {
 
-    const product = {name: 'Alimento Premium', category: 'Gatos', price: 6300, presentation: 'pack 500g', stock: 10}
-
     return(
         <div className="item-list-container">
-            <p>{greetings}</p>
-            <Card name={product.name} category={product.category} price={product.price} presentation={product.presentation} stock={product.stock} />
+            <h1>{greetings}</h1>
+            <ItemList />
         </div>
     );
 }

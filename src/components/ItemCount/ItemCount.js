@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 const ItemCount = ({stock}) => {
 
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(stock);
 
     const removeItem = () => {
         if (count > 1)

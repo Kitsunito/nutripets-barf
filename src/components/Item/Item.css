@@ -1,0 +1,12 @@
+
+.product-card{
+    max-width: 250px;    
+}
+
+.text-center {
+    text-align: center;
+}
+
+button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.text-center.product-button.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+    width: 100%;
+}
