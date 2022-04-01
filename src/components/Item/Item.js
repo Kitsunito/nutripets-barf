@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import './Item.css';
 import Button from '@mui/material/Button';
 
-const Item = ({name, category, presentation, price, stock, pictureURL, description}) => {
+const Item = ({name, category, presentation, price, stock}) => {
 
     return (
         <CardMUI className="product-card">

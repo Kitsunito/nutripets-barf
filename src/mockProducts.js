@@ -5,7 +5,7 @@ const mockProducts = [{
     presentation: "500 g",
     description: 'Contiene: carne de res, avichuela, avena y brócoli.',
     price: 7300,
-    pictureURL: "",
+    pictureURL: "img/gatoCarnePremium_1280.jpg",
     stock: 25
 },
 {

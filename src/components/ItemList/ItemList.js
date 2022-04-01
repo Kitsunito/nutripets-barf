@@ -1,5 +1,5 @@
 import mockProducts from "../../mockProducts";
-import { useState, useEffects } from "react";
+import { useState, useEffect } from "react";
 import Item from "../Item/Item";
 import './ItemList.css';
 
@@ -15,11 +15,11 @@ const ItemList = () => {
     });
 
     //
-    getProducts.then(data => {
-        setProducts(data);
-    })
-    
-
+    useEffect( () => {
+        getProducts.then(data => {
+            setProducts(data);
+        })
+    },[])
 
     return (
         <div className="product-list-container">
@@ -35,8 +35,7 @@ const ItemList = () => {
                                 category={category} 
                                 presentation={presentation} 
                                 price={price}
-                                stock={stock}
-                                description={description} />
+                                stock={stock} />
                         )
                     })
                 ) : (

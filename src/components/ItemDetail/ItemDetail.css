@@ -1,0 +1,22 @@
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.item-datail{
+    margin-top: 20px;
+    display: flex;
+    padding: 5px;
+}
+
+.item-img {
+    max-width: 300px !important;
+    padding: 5px;
+}
+
+.item-description {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
