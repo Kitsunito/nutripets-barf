@@ -7,6 +7,15 @@ header.main-header{
     box-shadow: 1px 5px 15px #81818129;
 }
 
+header.main-header li button{
+    background: none;
+}
+
+header.main-header li button a{
+    text-decoration: none;
+    color: #0288d1;
+}
+
 .img-header {
     border-radius: 50%;
     width: 100%

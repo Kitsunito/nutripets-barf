@@ -3,8 +3,11 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import './Item.css';
 import Button from '@mui/material/Button';
+import { Link } from "react-router-dom";
 
-const Item = ({name, category, presentation, price, stock}) => {
+const Item = ({product}) => {
+    
+    const {category, name, presentation, price, stock, id} = product;
 
     return (
         <CardMUI className="product-card">
@@ -21,7 +24,9 @@ const Item = ({name, category, presentation, price, stock}) => {
                 <Typography variant="h6" className="text-center">$ {price}</Typography>
                 <Typography className="text-center" sx={{ fontSize: 13 }} color="text.secondary" gutterBottom>
                     Stock Disponible: {stock}</Typography>
-                <Button variant="outlined" className="text-center product-button">Ver producto</Button>
+                <Button variant="outlined" className="text-center product-button">
+                    <Link to={`../item/${id}`}>Ver producto</Link>
+                </Button>
             </CardContent>
         </CardMUI>
     )

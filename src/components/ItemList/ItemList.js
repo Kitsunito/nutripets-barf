@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Item from "../Item/Item";
 import './ItemList.css';
 
-const ItemList = () => {
+const ItemList = ({category}) => {
     //Seteamos products como array vacío
     const [products, setProducts] = useState([]);
 
@@ -22,26 +22,20 @@ const ItemList = () => {
     },[])
 
     return (
-        <div className="product-list-container">
+        <div className="product-list-container" key="1">
             {
                 //Utilizamos el operador ternario para emitir un mensaje si no hay elementos
                 products.length ? (
-                    products.map((product) => {
-                        const {id, name, category, presentation, price, stock, description} = product;
-                        return (
+                    products.map((product) => {                     
+                        return (category === "" || category === product.category) ? (
                             <Item
-                                key={id}
-                                name={name} 
-                                category={category} 
-                                presentation={presentation} 
-                                price={price}
-                                stock={stock} />
-                        )
+                                key={product.id}
+                                product={product} />
+                        ) : ""
                     })
                 ) : (
                     <p>Cargando productos</p>
                 )
-
             }
         </div>
     );

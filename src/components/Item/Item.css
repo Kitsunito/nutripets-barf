@@ -1,12 +1,17 @@
 
 .product-card{
-    max-width: 250px;    
+    min-width: 300px;
 }
 
 .text-center {
     text-align: center;
 }
 
-button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.text-center.product-button.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+.product-button {
     width: 100%;
+}
+
+.product-button a {
+    text-decoration: none;
+    color: #0288d1;
 }

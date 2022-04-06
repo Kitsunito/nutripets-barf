@@ -21,7 +21,7 @@ const mockProducts = [{
 {
     id: 3,
     name: 'Carne y Pollo Clásico',
-    category: 'Gatos',
+    category: 'Perros',
     presentation: "500 g",
     description: 'Contiene: corazón de res, pollo, huesos molidos de pollo, avichuela, avena y brócoli.',
     price: 5600,

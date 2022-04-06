@@ -5,23 +5,21 @@ import Typography from '@mui/material/Typography';
 
 const ItemCount = ({stock}) => {
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
 
     const removeItem = () => {
-        if (count > 1)
-            setCount(count - 1);
+        setCount(count - 1);
     }
 
     const addItem = () => {
-        if (count < stock)
-            setCount(count + 1);
+        setCount(count + 1);
     }
 
     return (
             <div className="item-count">
-                <Button onClick={removeItem}>-</Button>    
+                <Button onClick={removeItem} disabled={count > 0 ? false : true}>-</Button>    
                 <Typography className="display-count" variant="button">{count}</Typography >
-                <Button onClick={addItem}>+</Button>
+                <Button onClick={addItem} disabled={count < stock ? false : true}>+</Button>
             </div>
     )
 }
