@@ -1,10 +1,10 @@
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import ItemCount from '../ItemCount/ItemCount'
-import './ItemDetail.css'
+import ItemCount from '../ItemCount/ItemCount';
+import './ItemDetail.css';
 
 const ItemDetail = (product) => {
-    const {name, category, presentation, description, price, pictureURL, stock} = product;
+    const {name, presentation, description, price, pictureURL, stock} = product;
 
     return (
         <div className='item-datail'>
