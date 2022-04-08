@@ -2,9 +2,18 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = (product) => {
     const {name, presentation, description, price, pictureURL, stock} = product;
+
+    const [quantity, setQuantity] = useState(0);
+
+    const agregarCarrito = (e,cantidad) => {
+        e.stopPropagation();
+        setQuantity(cantidad);
+    }
 
     return (
         <div className='item-datail'>
@@ -24,8 +33,21 @@ const ItemDetail = (product) => {
                 <Typography className="text-center"  variant="string" component="div">
                     {presentation}
                 </Typography>
-                <ItemCount stock={stock}/>
-                <Button variant="contained">Agregar al carrito</Button>
+                {
+                    quantity > 0 ? (
+                        <>
+                            <Typography className="text-center"  sx={{ fontSize: 13 }} color="text.secondary" gutterBottom>
+                                Cantidad elegida: {quantity}
+                            </Typography>
+                            <Button variant="contained">
+                                <Link to={'/cart'}>Terminar la compra</Link>
+                            </Button>
+                        </>
+                    ) : (
+                        <ItemCount stock={stock} action={agregarCarrito}/>
+                    )
+                }
+
             </div>
         </div>
 

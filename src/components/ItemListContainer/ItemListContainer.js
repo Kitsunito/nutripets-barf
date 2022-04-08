@@ -6,8 +6,6 @@ import {useParams} from "react-router-dom";
 
 const ItemListcontainer = ({greetings}) => {
     const { id }  = useParams();
-    
-    console.log(id);
 
     const [category, setCategory] = useState("");
 

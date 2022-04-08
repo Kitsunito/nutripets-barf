@@ -8,3 +8,8 @@
 .display-count {
     width: 30px;
 }
+
+.item-count-button{
+    display: flex;
+    justify-content: center;
+}
