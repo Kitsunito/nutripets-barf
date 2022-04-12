@@ -3,18 +3,22 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import './Item.css';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 import { Link } from "react-router-dom";
 
 const Item = ({product}) => {
     
-    const {category, name, presentation, price, stock, id} = product;
+    const {category, name, presentation, price, stock, id, } = product;
 
     return (
-        <CardMUI className="product-card">
+        <CardMUI className="div-img">
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                     {category}
                 </Typography>
+                <Box className="card-img">
+                    <img src="/img/gatoCarnePremium_1280.jpg"></img>
+                </Box>
                 <Typography className="text-center"  variant="h5" component="div">
                     {name}
                 </Typography>
