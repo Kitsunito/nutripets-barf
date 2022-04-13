@@ -1,11 +1,15 @@
-import * as React from 'react';
+import { useContext, useState } from 'react';
 import Button from '@mui/material/Button';
 import './NavBar.css';
-import ColorBadge from '../ShoppingCartIcon/ShoppingCartIcon';
+import CartWidget from '../ShoppingCartWidget/ShoppingCartWidget';
 import CategoriesButton from '../CategoriesButton/CategoriesButton'
 import { Link} from 'react-router-dom';
+import CartContext from '../../context/CartContext';
 
-export default function SimpleContainer() {
+export default function NavBar(props) {
+
+    const {cartProducts} = useContext(CartContext);
+
     return (
         <header className="main-header">
             <div className="nav-img">
@@ -43,7 +47,7 @@ export default function SimpleContainer() {
                 </ul>
                 <div className="area-profile">
                     <div className="profile-section">
-                        <ColorBadge />
+                        <CartWidget />
                     </div>
                 </div>
             </nav>

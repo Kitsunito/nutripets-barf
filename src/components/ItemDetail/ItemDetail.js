@@ -1,18 +1,25 @@
+import { useContext } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import CartContext from '../../context/CartContext';
 
 const ItemDetail = (product) => {
-    const {name, presentation, description, price, pictureURL, stock} = product;
+
+    const {addProductToCart} = useContext(CartContext);
+
+    const {name, presentation, description, price, pictureURL, stock, id} = product;
 
     const [quantity, setQuantity] = useState(0);
 
     const agregarCarrito = (e,cantidad) => {
         e.stopPropagation();
         setQuantity(cantidad);
+        addProductToCart({...product, quantity: cantidad});
+        
     }
 
     return (

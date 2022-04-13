@@ -1,25 +1,53 @@
-import mockProducts from "../../mockProducts";
 import { useState, useEffect } from "react";
 import Item from "../Item/Item";
 import './ItemList.css';
+import db from '../../firebase'
+import { collection, getDocs } from 'firebase/firestore'
+import { useParams } from 'react-router-dom'
 
-const ItemList = ({category}) => {
+const ItemList = () => {
+
     //Seteamos products como array vacío
     const [products, setProducts] = useState([]);
 
-    //Emulamos la consulta de los productos con una demora de 2 segundos como respuesta a la promesa
-    const getProducts = new Promise( (resolve, reject) => {
-        setTimeout( () => {
-            resolve(mockProducts);
-        }, 2000);
-    });
+    //Seteamos el state de Loading como true
+    const [loading, setLoading] = useState(true);
+
+    //Obtenemos el dato de category desde useParams()
+    const { category } = useParams()
+
+    //Obtenemos el listado de productos de la conexión con firebase
+    const getProducts = async () => {
+    
+        const itemsCollections = collection(db, 'productos');
+        const productsSnapshot = await getDocs(itemsCollections);
+
+        const productList = productsSnapshot.docs.map((doc) => {
+            let product = doc.data();
+            product.id = doc.id;
+            return product;
+        });
+
+        return productList;
+    }
 
     //
     useEffect( () => {
-        getProducts.then(data => {
-            setProducts(data);
+        setProducts([]);
+        setLoading(true);
+        getProducts().then((productos) => {
+            setLoading(false);
+            category ? filterProductByCategory(productos, category) : setProducts(productos)
         })
-    },[])
+    },[category]);
+
+    const filterProductByCategory = (array, category) => {
+        return array.map((product) => {
+            if (product.category === category) {
+                return setProducts(products => [...products, product]);
+            }
+        })
+    }
 
     return (
         <div className="product-list-container" key="1">
