@@ -46,9 +46,13 @@ export default function NavBar(props) {
                     </li>
                 </ul>
                 <div className="area-profile">
-                    <div className="profile-section">
-                        <CartWidget />
-                    </div>
+                    {cartProducts.length ? 
+                                        <div className="profile-section">
+                                            <CartWidget />
+                                        </div>
+                    : ""
+                    }
+
                 </div>
             </nav>
         </header>

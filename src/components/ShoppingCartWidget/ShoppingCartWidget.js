@@ -81,9 +81,10 @@ const CartWidget = () => {
                                 <img src={`./${cartProduct.imageURL}`} /> 
                             </div>
                             <div>
-                                <p>{cartProduct.title}</p>
+                                <p>{cartProduct.name}</p>
                                 <span>$ {cartProduct.price}</span>
                                 <span>{cartProduct.quantity}</span>
+                                <p>Subtotal: $ {cartProduct.price * cartProduct.quantity}</p>
                             </div>
                             <div>
                                 <DeleteIcon 

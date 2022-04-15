@@ -1,0 +1,17 @@
+.item-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.item-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-section{
+    width: 200px;
+    display: flex;
+    align-items: center;
+}

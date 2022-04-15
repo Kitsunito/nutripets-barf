@@ -4,8 +4,6 @@ const CartContext = createContext();
 
 const CartProvider = ({children}) => {
     const [cartProducts, setCartProducts] = useState([]);
-
-    console.log(cartProducts);
     
     const addProductToCart = (product) => {
         
@@ -34,11 +32,22 @@ const CartProvider = ({children}) => {
         return cartProducts.some( prod => prod.id === id);
     }
 
+    const total = () => {
+        let total = 0;
+
+        cartProducts.map( (product) => {
+            total += (product.price * product.quantity)
+        })
+
+        return total;
+    }
+
     const data = {
         cartProducts,
         addProductToCart,
         removeProduct,
-        clearCart
+        clearCart,
+        total
     }
 
     return(
