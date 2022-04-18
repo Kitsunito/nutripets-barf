@@ -29,21 +29,6 @@ export default function NavBar(props) {
                             Productos
                         </CategoriesButton>
                     </li>
-                    <li>
-                        <Button size="large" color="info">
-                            <Link to={'/nosotros'}>Nosotros</Link>
-                        </Button>
-                    </li>
-                    <li>
-                        <Button size="large" color="info">
-                            <Link to={'/dieta-barf'}>Dieta BARF</Link>
-                        </Button>
-                    </li>
-                    <li>
-                        <Button size="large" color="info">
-                            <Link to={'/contacto'}>Contáctanos</Link>
-                        </Button>
-                    </li>
                 </ul>
                 <div className="area-profile">
                     {cartProducts.length ? 
@@ -52,7 +37,6 @@ export default function NavBar(props) {
                                         </div>
                     : ""
                     }
-
                 </div>
             </nav>
         </header>
