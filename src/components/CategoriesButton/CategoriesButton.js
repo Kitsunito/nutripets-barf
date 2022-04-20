@@ -3,17 +3,42 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Link} from 'react-router-dom';
-import mockCategories from '../../mockCategories.js';
+import { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import db from "../../firebase";
+
 
 export default function BasicMenu({children}) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [categories, setCategories] = useState([]);
     const open = Boolean(anchorEl);
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const getCategories = async() => {
+        const itemsCollections = collection(db, "categorias");
+        const categoriesSnapshot = await getDocs(itemsCollections);
+
+        const categories = categoriesSnapshot.docs.map((doc) => {
+            let category = doc.data();
+            category.id = doc.id;
+            return category;
+        })
+
+        return categories;
+    }
+
+    useEffect( () => {
+        setCategories([]);
+        getCategories().then((categories) => {
+            setCategories(categories);
+        })
+    },[]) 
 
     return (
     <div>
@@ -36,7 +61,7 @@ export default function BasicMenu({children}) {
             }}
             >
             {
-                mockCategories.map((category) => {
+                categories.map((category) => {
                     return <MenuItem onClick={handleClose} key={category.id}>
                         <Link to={`/category/${category.id}`}>{`${category.title}`}</Link>
                     </MenuItem>

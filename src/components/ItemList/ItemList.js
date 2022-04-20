@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Item from "../Item/Item";
 import './ItemList.css';
 import db from '../../firebase'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, query, where} from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
 
 const ItemList = () => {
@@ -14,12 +14,13 @@ const ItemList = () => {
     const [loading, setLoading] = useState(true);
 
     //Obtenemos el dato de category desde useParams()
-    const { category } = useParams()
+    const { category } = useParams();
 
     //Obtenemos el listado de productos de la conexión con firebase
     const getProducts = async () => {
-    
-        const itemsCollections = collection(db, 'productos');
+        const itemsCollections = category ? 
+        (query(collection(db, 'productos'), where("categoryId", "==", category))
+        ) : collection(db, 'productos');
         const productsSnapshot = await getDocs(itemsCollections);
 
         const productList = productsSnapshot.docs.map((doc) => {
@@ -27,7 +28,6 @@ const ItemList = () => {
             product.id = doc.id;
             return product;
         });
-
         return productList;
     }
 
@@ -37,17 +37,9 @@ const ItemList = () => {
         setLoading(true);
         getProducts().then((productos) => {
             setLoading(false);
-            category ? filterProductByCategory(productos, category) : setProducts(productos)
+            setProducts(productos);
         })
     },[category]);
-
-    const filterProductByCategory = (array, category) => {
-        return array.map((product) => {
-            if (product.category === category) {
-                return setProducts(products => [...products, product]);
-            }
-        })
-    }
 
     return (
         <div className="product-list-container" key="1">
@@ -55,11 +47,11 @@ const ItemList = () => {
                 //Utilizamos el operador ternario para emitir un mensaje si no hay elementos
                 products.length ? (
                     products.map((product) => {                     
-                        return (category === "" || category === product.category) ? (
+                        return (
                             <Item
                                 key={product.id}
                                 product={product} />
-                        ) : ""
+                        )
                     })
                 ) : (
                     <p>Cargando productos</p>

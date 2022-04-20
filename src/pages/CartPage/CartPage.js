@@ -6,7 +6,6 @@ import NoItems from '../../components/EmptyCart/EmptyCart';
 const CartPage = () => {
 
     const {cartProducts} = useContext(CartContext);
-    console.log(cartProducts.length);
 
     return (
         <>

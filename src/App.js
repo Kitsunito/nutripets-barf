@@ -28,7 +28,7 @@ function App() {
             <Route path="/dieta-barf" element={<DietaBarf />} />
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/contacto" element={<Contact/>} />
-            <Route path="/category/:id" element={<ItemListContainer />}/>
+            <Route path="/category/:category" element={<ItemListContainer />}/>
             <Route path="/item/:id" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="*" element={<NotFound />} />
