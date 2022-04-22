@@ -32,7 +32,7 @@ const CartProvider = ({children}) => {
         return cartProducts.some( prod => prod.id === id);
     }
 
-    const total = () => {
+    const totalPrice = () => {
         let total = 0;
 
         cartProducts.map( (product) => {
@@ -47,7 +47,7 @@ const CartProvider = ({children}) => {
         addProductToCart,
         removeProduct,
         clearCart,
-        total
+        totalPrice
     }
 
     return(

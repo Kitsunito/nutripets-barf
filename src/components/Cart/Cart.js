@@ -3,13 +3,12 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Button from '@mui/material/Button';
 import CartContext from '../../context/CartContext';
 import './Cart.css';
 
 const Cart = () => {
 
-    const { cartProducts, removeProduct, total } = useContext(CartContext);
+    const { cartProducts, removeProduct, totalPrice } = useContext(CartContext);
 
     return (
         <div>
@@ -42,7 +41,7 @@ const Cart = () => {
                     })
                     }
                     <Box>
-                        <p>TOTAL: {total()}</p>
+                        <p>TOTAL: {totalPrice()}</p>
                     </Box>
                 </Stack>
             </Box>
