@@ -11,7 +11,7 @@ const Item = ({product}) => {
     const {category, name, presentation, price, stock, id, } = product;
 
     return (
-        <CardMUI className="div-img">
+        <CardMUI className="product-card">
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                     {category}

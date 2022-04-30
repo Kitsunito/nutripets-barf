@@ -27,8 +27,8 @@ const ItemDetailContainer = () => {
         getProduct();
     },[id])
 
-    const {name, category, presentation, price, stock, description, pictureURL} = product;
-
+    const {name, category, presentation, price, stock, description, image} = product;
+    console.log(product);
     return (
         <ItemDetail
             key = {id}
@@ -39,7 +39,7 @@ const ItemDetailContainer = () => {
             price={price}
             stock={stock}
             description={description}
-            pictureURL={pictureURL} />
+            image={image} />
     )
 }
 

@@ -42,7 +42,7 @@ const ItemList = () => {
     },[category]);
 
     return (
-        <div className="product-list-container" key="1">
+        <div className="product-list" key="1">
             {
                 //Utilizamos el operador ternario para emitir un mensaje si no hay elementos
                 products.length ? (

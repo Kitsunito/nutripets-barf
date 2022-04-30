@@ -78,7 +78,7 @@ const CartWidget = () => {
                     return(
                         <MenuItem key={cartProduct.id}>
                             <div >
-                                <img src={`./${cartProduct.imageURL}`} /> 
+                                <img src={`../img/${cartProduct.image}`} /> 
                             </div>
                             <div>
                                 <p>{cartProduct.name}</p>

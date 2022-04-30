@@ -9,9 +9,11 @@ import CartContext from '../../context/CartContext';
 
 const ItemDetail = (product) => {
 
+    console.log("ItemDetail:", product);
+
     const {addProductToCart} = useContext(CartContext);
 
-    const {name, presentation, description, price, pictureURL, stock, id} = product;
+    const {name, presentation, description, price, image, stock, id} = product;
 
     const [quantity, setQuantity] = useState(0);
 
@@ -25,7 +27,7 @@ const ItemDetail = (product) => {
     return (
         <div className='item-datail'>
             <div className='item-img'>
-                <img src={"../../" + pictureURL} alt={name}></img>
+                <img src={"../img/" + image} alt={name}></img>
             </div>
             <div className='item-description'>
                 <Typography className="text-center"  variant="h3" component="div">

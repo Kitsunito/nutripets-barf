@@ -14,7 +14,7 @@ export default function NavBar(props) {
         <header className="main-header">
             <div className="nav-img">
                 <Link to={'/'}>
-                    <img src="logo.png" alt="logo" className="img-header"></img>
+                    <img src="../../logo.png" alt="logo" className="img-header"></img>
                 </Link>
             </div>
             <nav>

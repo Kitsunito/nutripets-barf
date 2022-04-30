@@ -1,4 +1,4 @@
-.product-list-container {
+.product-list {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap; 
