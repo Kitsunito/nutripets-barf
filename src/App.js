@@ -3,14 +3,13 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 //Components
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Footer from './components/Footer/Footer'
-
 
 //Pages
 import NotFound from './pages/NotFound/NotFound'
 import CartPage from './pages/CartPage/CartPage'
+import ItemListContainer from './pages/ItemListContainer/ItemListContainer'
+import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
 
 //Context
 import { CartProvider } from './context/CartContext';

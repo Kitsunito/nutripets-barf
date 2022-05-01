@@ -1,0 +1,57 @@
+.cart-modal .MuiPaper-root.MuiPaper-elevation h3{
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.cart-modal .MuiMenu-list {
+    width: 350px;
+}
+
+.item-cart-modal {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.item-cart-modal__img {
+    overflow: hidden;
+    width: 30%;
+    height: 100px;
+    margin: 2px;
+}
+
+.item-cart-modal__data {
+    width: 60%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.item-cart-modal__data h4 {
+    font-weight: 500;
+}
+
+.item-cart-modal__data p {
+    font-weight: 300;
+    color:rgb(63, 63, 63);
+}
+
+.item-cart-modal__action {
+    width: 10%;
+}
+
+.item-cart-modal__img img {
+    width: 100%;
+}
+
+.item-cart-modal__info p {
+    padding: 0px !important;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    text-align: left !important;
+}
+
+.footer-modal-cart {
+    padding: 0px 10px;
+}

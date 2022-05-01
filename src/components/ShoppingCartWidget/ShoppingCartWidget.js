@@ -9,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import CartContext from '../../context/CartContext';
+import "./ShoppingCartWidget.css"
 
 
 const CartWidget = () => {
@@ -22,6 +23,8 @@ const CartWidget = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const numberFormat = new Intl.NumberFormat('es-co', { style: 'currency', currency: 'COP' })
 
     return (
         <div className='cart-button'>
@@ -72,21 +75,23 @@ const CartWidget = () => {
                     transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                     anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <p>Carrito de Compras</p>
+                <h3>Carrito de Compras</h3>
                 <Divider />
                 {cartProducts.map( (cartProduct) => {
                     return(
-                        <MenuItem key={cartProduct.id}>
-                            <div >
+                        <MenuItem className='item-cart-modal' key={cartProduct.id}>
+                            <div className='item-cart-modal__img'>
                                 <img src={`../img/${cartProduct.image}`} /> 
                             </div>
-                            <div>
-                                <p>{cartProduct.name}</p>
-                                <span>$ {cartProduct.price}</span>
-                                <span>{cartProduct.quantity}</span>
-                                <p>Subtotal: $ {cartProduct.price * cartProduct.quantity}</p>
+                            <div className='item-cart-modal__data'>
+                                <h4>{cartProduct.name}</h4>
+                                <p>{numberFormat.format(cartProduct.price)}</p>
+                                <p>Cantidad: {cartProduct.quantity}</p>
+                                <p className='item-cart-modal__data-price'>
+                                    Subtotal: {numberFormat.format(cartProduct.price * cartProduct.quantity)}
+                                </p>
                             </div>
-                            <div>
+                            <div className='item-cart-modal__action'>
                                 <DeleteIcon 
                                 onClick={(e) => {
                                     e.preventDefault();
@@ -97,8 +102,8 @@ const CartWidget = () => {
                     )
                 })}
                 <Divider />
-                <div>
-                    <Button className="btn-custom"><Link to="/cart">Ir a la caja</Link></Button>
+                <div className='footer-modal-cart'>
+                    <Button variant="contained" className="btn-custom"><Link to="/cart">Ir a la caja</Link></Button>
                 </div>
             </Menu>
         </div>

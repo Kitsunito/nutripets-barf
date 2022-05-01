@@ -1,9 +1,8 @@
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from '../../context/CartContext';
 

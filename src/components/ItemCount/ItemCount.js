@@ -23,7 +23,7 @@ const ItemCount = ({stock,action}) => {
     return (
             <>
                 <div className="item-count">
-                    <Button onClick={removeItem} disabled={count > 0 ? false : true}>-</Button>    
+                    <Button onClick={removeItem} disabled={count > 1 ? false : true}>-</Button>    
                     <Typography className="display-count" variant="button">{count}</Typography >
                     <Button onClick={addItem} disabled={count < stock ? false : true}>+</Button>
                 </div>
