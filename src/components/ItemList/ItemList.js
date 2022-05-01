@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import Item from "../Item/Item";
 import './ItemList.css';
-import db from '../../firebase'
-import { collection, getDocs, query, where} from 'firebase/firestore'
-import { useParams } from 'react-router-dom'
+import db from '../../firebase';
+import { collection, getDocs, query, where} from 'firebase/firestore';
+import { useParams } from 'react-router-dom';
+import LinearIndeterminate from '../LinearIndeterminate/LinearIndeterminate';
 
 const ItemList = () => {
 
@@ -31,7 +32,6 @@ const ItemList = () => {
         return productList;
     }
 
-    //
     useEffect( () => {
         setProducts([]);
         setLoading(true);
@@ -53,9 +53,7 @@ const ItemList = () => {
                                 product={product} />
                         )
                     })
-                ) : (
-                    <p>Cargando productos</p>
-                )
+                ) : (<LinearIndeterminate />)
             }
         </div>
     );
