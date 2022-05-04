@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
-import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import CartContext from '../../context/CartContext';
 import "./ShoppingCartWidget.css"
 
@@ -28,14 +28,19 @@ const CartWidget = () => {
 
     return (
         <div className='cart-button'>
-            <Stack spacing={2} direction="row">
-                <Badge badgeContent={cartProducts.length} color="primary">
-                    <ShoppingCartTwoToneIcon 
+            <Stack spacing={3} direction="row" className='shopping-cart-badge'>
+                <Badge 
+                    badgeContent={cartProducts.length} 
+                    className="shopping-cart-quantity"
+                    color="warning">
+                    <ShoppingCartRoundedIcon
                         onClick={handleClick}
-                        color="action" fontSize="large"
+                        fontSize="large"
                         aria-controls={open ? 'account-menu' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
+                        className="shopping-cart-icon"
+                        sx={{color: '#0288d1'}}
                     />
                 </Badge>
             </Stack>
@@ -92,7 +97,8 @@ const CartWidget = () => {
                                 </p>
                             </div>
                             <div className='item-cart-modal__action'>
-                                <DeleteIcon 
+                                <DeleteIcon
+                                className="shopping-cart-icon"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     removeProduct(cartProduct.id);

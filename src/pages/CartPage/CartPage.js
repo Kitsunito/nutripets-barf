@@ -47,14 +47,17 @@ const CartPage = () => {
         setSuccessOrder(orderDoc.id)
     }
 
+    const validateForm = () => {
+        const txtNombre = document.getElementById("name")
+    }
+
     const handleSubmit = (e) => {
-        e.preventDefault();
         let prevOrder = {
             ...order,
             date: new Date(),
             buyer: formData
         }
-        setOrder(prevOrder)
+        setOrder(prevOrder);
         pushOrder(prevOrder);
     }
 
@@ -90,20 +93,22 @@ const CartPage = () => {
                                     placeholder='Nombre' 
                                     onChange={handleChange}
                                     value={formData.name}
+                                    id="name"
                                 />
                                 <input type="number"
                                     name="phone" 
                                     placeholder='Teléfono' 
                                     onChange={handleChange}
                                     value={formData.phone}
+                                    id="phone"
                                 />
                                 <input type="mail"
                                     name="email" 
                                     placeholder='Mail' 
                                     onChange={handleChange}
                                     value={formData.email}
+                                    id="mail"
                                 />
-
                                 <Button type="submit">Enviar</Button>
                             </form>
                         </>

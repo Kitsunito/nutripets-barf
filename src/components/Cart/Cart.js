@@ -12,13 +12,20 @@ const Cart = () => {
 
     return (
         <div>
-            <Box sx={{ width: '100%' }} >
-                <Stack spacing={0}>
+            <Box className="cart-container" >
+                <div className="cart-header">
+                    <h2>Producto</h2>
+                    <h2>Descripción</h2>
+                    <h2>Cantidad</h2>
+                    <h2>Precio Unitario</h2>
+                    <h2>Quitar</h2>
+                </div>
+                <Stack spacing={1}>
                     {cartProducts.map( (cartProduct) => {
                         return (<>
                         <Box key={cartProduct.id} className="item-container">
-                            <div className="item-section">
-                                <img src={`./${cartProduct.imageURL}`} /> 
+                            <div className="item-details-img">
+                                <img src={`../img/${cartProduct.image}`} /> 
                             </div>
                             <div className="item-details item-section">
                                 <p>{cartProduct.name}</p>
