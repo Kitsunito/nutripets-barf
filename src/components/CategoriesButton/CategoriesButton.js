@@ -41,15 +41,15 @@ export default function BasicMenu({children}) {
     },[]) 
 
     return (
-    <div>
+    <>
         <Button
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
+            id="basic-button"
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
         >
-        {children}
+            {children}
         </Button>
         <Menu
             id="basic-menu"
@@ -68,6 +68,6 @@ export default function BasicMenu({children}) {
                 })
             }
         </Menu>
-    </div>
+    </>
     );
 }

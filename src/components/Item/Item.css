@@ -18,7 +18,6 @@
 }
 
 .card-img > img {
-    top: 1000px;
     width: 300px;
 	height: 200px;
     object-fit: cover;

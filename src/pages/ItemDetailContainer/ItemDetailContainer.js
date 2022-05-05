@@ -24,12 +24,11 @@ const ItemDetailContainer = () => {
         }
     }
 
-    useEffect( () => {
-        getProduct();
+    useEffect(() => {
+        getProduct()
     },[id])
 
     const {name, category, presentation, price, stock, description, image} = product;
-    console.log(product);
     return (
             name ? (
                     <ItemDetail

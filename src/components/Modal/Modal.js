@@ -1,8 +1,8 @@
 import Dialog from '@mui/material/Dialog';
 
-const ModalCustom = ({handleClose, open, children}) => {
+const ModalCustom = ({handleClose, open, children, className}) => {
     return (
-        <Dialog onClose={handleClose} open={open}>
+        <Dialog onClose={handleClose} open={open} className={className}>
             {children}
         </Dialog>
     )

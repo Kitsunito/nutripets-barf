@@ -21,6 +21,10 @@ header.main-header li button a{
     width: 100%
 }
 
+nav {
+    display: flex;
+}
+
 ul.navMenu {
     list-style: none;
     display: flex;
@@ -28,10 +32,19 @@ ul.navMenu {
 
 ul.navMenu li {
     margin-right: 15px;
+    display: flex;
 }
 
-nav {
-    display: flex;
+ul.navMenu li button{
+    font-size: medium;
+    font-weight: 500;
+    font-family: 'Montserrat', 'Roboto', 'sans-serif';
+}
+
+ul.navMenu li button a{
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
 }
 
 .nav-img {
@@ -45,4 +58,9 @@ nav {
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+
+ul.MuiList-root a {
+    text-decoration: none;
+    color: black;
 }

@@ -6,7 +6,10 @@ const NoItems = () => {
     return (
         <div>
             <p>No hay items en el carrito</p>
-            <Button className="btn-custom"><Link to="/">Ir a la tienda</Link></Button>
+            <Button variant="contained" 
+                className="btn-custom">
+                    <Link to="/">Ir a la tienda</Link>
+            </Button>
         </div>
     )
 }

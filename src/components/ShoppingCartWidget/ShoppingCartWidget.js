@@ -35,7 +35,7 @@ const CartWidget = () => {
                     color="warning">
                     <ShoppingCartRoundedIcon
                         onClick={handleClick}
-                        fontSize="large"
+                        fontSize="medium"
                         aria-controls={open ? 'account-menu' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
@@ -86,7 +86,7 @@ const CartWidget = () => {
                     return(
                         <MenuItem className='item-cart-modal' key={cartProduct.id}>
                             <div className='item-cart-modal__img'>
-                                <img src={`../img/${cartProduct.image}`} /> 
+                                <img src={`../img/${cartProduct.image}`} alt={cartProduct.name} /> 
                             </div>
                             <div className='item-cart-modal__data'>
                                 <h4>{cartProduct.name}</h4>

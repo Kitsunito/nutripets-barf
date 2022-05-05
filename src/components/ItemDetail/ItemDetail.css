@@ -20,3 +20,13 @@ img {
     flex-direction: column;
     padding: 5px;
 }
+
+.finish-button a{
+    color: #FFF;
+    text-decoration: none;
+}
+.finish-button{
+    display: flex;
+    justify-content: center;
+    width: 220px;
+}

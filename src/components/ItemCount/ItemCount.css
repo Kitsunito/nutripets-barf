@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    height: 36.5px  ;
 }
 
 .display-count {
@@ -12,4 +13,8 @@
 .item-count-button{
     display: flex;
     justify-content: center;
+}
+
+.item-count-button button{
+    width: 220px;
 }

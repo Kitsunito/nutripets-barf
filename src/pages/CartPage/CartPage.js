@@ -4,9 +4,11 @@ import CartContext from '../../context/CartContext';
 import NoItems from '../../components/EmptyCart/EmptyCart';
 import Button from '@mui/material/Button';
 import ModalCustom from '../../components/Modal/Modal';
+import OrderReceipt from '../../components/OrderReceipt/OrderReceipt';
 import db from '../../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { useNavigate } from "react-router-dom";
+import './CartPage.css';
 
 const CartPage = () => {
 
@@ -47,11 +49,8 @@ const CartPage = () => {
         setSuccessOrder(orderDoc.id)
     }
 
-    const validateForm = () => {
-        const txtNombre = document.getElementById("name")
-    }
-
     const handleSubmit = (e) => {
+        e.preventDefault();
         let prevOrder = {
             ...order,
             date: new Date(),
@@ -71,45 +70,49 @@ const CartPage = () => {
             { cartProducts.length  ? (
                 <>
                     <Cart key="1"/>
-                    <Button onClick={()=> setOpenModal(true)}>Realizar pedido</Button>
-
-                    <ModalCustom handleClose={() => setOpenModal(false)} open={openModal}>
+                    <div className="cart-footer">
+                        <Button variant="contained" onClick={()=> setOpenModal(true)}>Realizar pedido</Button>
+                    </div>
+                    <ModalCustom className="cart-modal" handleClose={() => setOpenModal(false)} open={openModal}>
                         <h2>Su Compra</h2>
                         { successOrder ? (
                             <>
-                                <div>
-                                    <h3>Orden generada correctamente</h3>
-                                    <p>Su código de órden es: {successOrder}</p>
-                                </div>
-                                <Button onClick={endCart}>Cerrar</Button>
+                                <OrderReceipt successOrder={successOrder}/>
+                                <Button variant="contained" onClick={endCart}>Cerrar</Button>
                             </>
                         ) :
                         (
                         <>
-                            <h3>Datos del cliente</h3>
+                            <h3 className="cart-form-title">Datos del cliente</h3>
                             <form onSubmit={handleSubmit}>
-                                <input type="text"
-                                    name="name" 
-                                    placeholder='Nombre' 
-                                    onChange={handleChange}
-                                    value={formData.name}
-                                    id="name"
-                                />
-                                <input type="number"
-                                    name="phone" 
-                                    placeholder='Teléfono' 
-                                    onChange={handleChange}
-                                    value={formData.phone}
-                                    id="phone"
-                                />
-                                <input type="mail"
-                                    name="email" 
-                                    placeholder='Mail' 
-                                    onChange={handleChange}
-                                    value={formData.email}
-                                    id="mail"
-                                />
-                                <Button type="submit">Enviar</Button>
+                                <div className="form-component"> 
+                                    <input type="text"
+                                        name="name" 
+                                        placeholder='Nombre' 
+                                        onChange={handleChange}
+                                        value={formData.name}
+                                        id="name"
+                                    />
+                                </div>
+                                <div className="form-component">
+                                    <input type="number"
+                                        name="phone" 
+                                        placeholder='Teléfono' 
+                                        onChange={handleChange}
+                                        value={formData.phone}
+                                        id="phone"
+                                    />
+                                </div>
+                                <div className="form-component">
+                                    <input type="mail"
+                                        name="email" 
+                                        placeholder='Mail' 
+                                        onChange={handleChange}
+                                        value={formData.email}
+                                        id="mail"
+                                    />
+                                </div>
+                                <Button type="submit" variant="contained">Enviar</Button>
                             </form>
                         </>
                         )}

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Item = ({product}) => {
     
-    const {category, name, presentation, price, stock, id, } = product;
+    const {category, name, presentation, price, stock, id, image} = product;
 
     return (
         <CardMUI className="product-card">
@@ -17,7 +17,7 @@ const Item = ({product}) => {
                     {category}
                 </Typography>
                 <Box className="card-img">
-                    <img src="/img/gatoCarnePremium_1280.jpg"></img>
+                    <img src={`../img/${image}`} alt={name}></img>
                 </Box>
                 <Typography className="text-center"  variant="h5" component="div">
                     {name}

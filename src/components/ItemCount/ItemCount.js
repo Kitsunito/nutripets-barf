@@ -15,11 +15,6 @@ const ItemCount = ({stock,action}) => {
         setCount(count + 1);
     }
 
-    const addToCart = (e) => {
-        e.stopPropagation();
-        console.log("Agrego al carrito");
-    }
-
     return (
             <>
                 <div className="item-count">

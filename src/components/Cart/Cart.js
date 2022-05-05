@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import {useContext } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
@@ -10,6 +10,8 @@ const Cart = () => {
 
     const { cartProducts, removeProduct, totalPrice } = useContext(CartContext);
 
+    const numberFormat = new Intl.NumberFormat('es-co', { style: 'currency', currency: 'COP' })
+
     return (
         <div>
             <Box className="cart-container" >
@@ -17,7 +19,7 @@ const Cart = () => {
                     <h2>Producto</h2>
                     <h2>Descripción</h2>
                     <h2>Cantidad</h2>
-                    <h2>Precio Unitario</h2>
+                    <h2>Subtotal</h2>
                     <h2>Quitar</h2>
                 </div>
                 <Stack spacing={1}>
@@ -25,18 +27,21 @@ const Cart = () => {
                         return (<>
                         <Box key={cartProduct.id} className="item-container">
                             <div className="item-details-img">
-                                <img src={`../img/${cartProduct.image}`} /> 
+                                <img src={`../img/${cartProduct.image}`} alt={cartProduct.name} /> 
                             </div>
                             <div className="item-details item-section">
                                 <p>{cartProduct.name}</p>
-                                <span>$ {cartProduct.price}</span>
-                                <span>Cantidad: {cartProduct.quantity}</span>
+                                <span>Precio Unitario: {numberFormat.format(cartProduct.price)}</span>
                             </div>
                             <div className="item-section">
-                                <p>Subtotal: $ {cartProduct.price * cartProduct.quantity}</p>
+                                <span>{cartProduct.quantity}</span>
                             </div>
                             <div className="item-section">
-                                <DeleteIcon 
+                                <p>{numberFormat.format(cartProduct.price * cartProduct.quantity)}</p>
+                            </div>
+                            <div className="item-section">
+                                <DeleteIcon
+                                    className='item-icon'
                                     onClick={(e) => {
                                         e.preventDefault();
                                         removeProduct(cartProduct.id);
@@ -47,8 +52,8 @@ const Cart = () => {
                         </>)
                     })
                     }
-                    <Box>
-                        <p>TOTAL: {totalPrice()}</p>
+                    <Box className="total-container">
+                        <p>TOTAL: {numberFormat.format(totalPrice())}</p>
                     </Box>
                 </Stack>
             </Box>

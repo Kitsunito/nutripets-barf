@@ -8,11 +8,9 @@ import CartContext from '../../context/CartContext';
 
 const ItemDetail = (product) => {
 
-    console.log("ItemDetail:", product);
-
     const {addProductToCart} = useContext(CartContext);
 
-    const {name, presentation, description, price, image, stock, id} = product;
+    const {name, presentation, description, price, image, stock} = product;
 
     const [quantity, setQuantity] = useState(0);
 
@@ -44,12 +42,16 @@ const ItemDetail = (product) => {
                 {
                     quantity > 0 ? (
                         <>
-                            <Typography className="text-center"  sx={{ fontSize: 13 }} color="text.secondary" gutterBottom>
-                                Cantidad elegida: {quantity}
-                            </Typography>
-                            <Button variant="contained">
-                                <Link to={'/cart'}>Terminar la compra</Link>
-                            </Button>
+                            <div className="item-count">
+                                <Typography className="text-center"  sx={{ fontSize: 13 }} color="text.secondary" gutterBottom>
+                                    Cantidad elegida: {quantity}
+                                </Typography>
+                            </div>
+                            <div className="item-count-button">
+                                <Button variant="contained" className="finish-button">
+                                    <Link to={'/cart'}>Terminar la compra</Link>
+                                </Button>
+                            </div>
                         </>
                     ) : (
                         <ItemCount stock={stock} action={agregarCarrito}/>
