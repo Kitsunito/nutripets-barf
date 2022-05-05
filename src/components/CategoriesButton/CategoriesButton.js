@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import db from "../../firebase";
+import db from "../../services/firebase";
 
 
 export default function BasicMenu({children}) {

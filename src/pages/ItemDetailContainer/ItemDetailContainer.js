@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import {useParams} from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
-import db from "../../firebase";
+import db from "../../services/firebase";
 import LinearIndeterminate from '../../components/LinearIndeterminate/LinearIndeterminate';
 
 const ItemDetailContainer = () => {

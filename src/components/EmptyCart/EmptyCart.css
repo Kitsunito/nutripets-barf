@@ -1,0 +1,10 @@
+.empty-cart-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.empty-cart-container div p {
+    margin-bottom: 15px;
+}

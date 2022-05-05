@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Item from "../Item/Item";
 import './ItemList.css';
-import db from '../../firebase';
+import db from '../../services/firebase';
 import { collection, getDocs, query, where} from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import LinearIndeterminate from '../LinearIndeterminate/LinearIndeterminate';

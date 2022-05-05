@@ -14,9 +14,13 @@ import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer
 //Context
 import { CartProvider } from './context/CartContext';
 
+console.log(process.env.REACT_APP_GOOGLE_FIREBASE_API_KEY);
+
 function App() {
+
   return (
-    <div className="App">
+
+    <div className="App">  {/*
       <CartProvider>
         <BrowserRouter>
           <NavBar />
@@ -29,7 +33,7 @@ function App() {
           </Routes>
           <Footer />
         </BrowserRouter>
-      </CartProvider>
+      </CartProvider>*/}
     </div>
   );
 }

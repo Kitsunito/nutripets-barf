@@ -5,7 +5,7 @@ import NoItems from '../../components/EmptyCart/EmptyCart';
 import Button from '@mui/material/Button';
 import ModalCustom from '../../components/Modal/Modal';
 import OrderReceipt from '../../components/OrderReceipt/OrderReceipt';
-import db from '../../firebase';
+import db from '../../services/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { useNavigate } from "react-router-dom";
 import './CartPage.css';
