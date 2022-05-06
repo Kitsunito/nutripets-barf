@@ -4,7 +4,7 @@
 
 El mismo corresponde una aplicación web de e-commerce para una empresa que vende alimentos para mascotas en el departamento de Boyacá, Colombia.
 
- - [🛠️ Construido con...](https://github.com/Kitsunito/nutripets-barf#%EF%B8%8F-construido-con)
+ - [🛠️ Construido con...](./nutripets-barf#%EF%B8%8F-construido-con)
 
 ## 🛠️ Construido con...
 Este proyecto fue construido con las siguientes herramientas:
