@@ -8,7 +8,7 @@ El mismo corresponde una aplicación web de e-commerce para una empresa que vend
 
  - [🛠️ Construido con...](../../../nutripets-barf#%EF%B8%8F-construido-con)
  - [⚙️Funcionamiento](../../../nutripets-barf#%EF%B8%8Ffuncionamiento)
- - [🧬Estructura del proyecto](../../../#estructura-del-proyecto)
+ - [🧬Estructura del proyecto](../../../nutripets-barf#estructura-del-proyecto)
 
 
 ## 🛠️ Construido con...
