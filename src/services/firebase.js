@@ -8,7 +8,7 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyDmNilM7gEOJamLQ7b6KjUUv_c6OVVZCeM",
+    apiKey: process.env.REACT_APP_GOOGLE_FIREBASE_API_KEY,
     authDomain: "ecommerce-nutripets.firebaseapp.com",
     projectId: "ecommerce-nutripets",
     storageBucket: "ecommerce-nutripets.appspot.com",
