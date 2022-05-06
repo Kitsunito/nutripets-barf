@@ -1,19 +1,29 @@
+//Hooks
 import {useContext } from 'react';
+
+//Context
+import CartContext from '../../context/CartContext';
+
+//Components
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import DeleteIcon from '@mui/icons-material/Delete';
-import CartContext from '../../context/CartContext';
+
+//Style
 import './Cart.css';
 
 const Cart = () => {
 
     const { cartProducts, removeProduct, totalPrice } = useContext(CartContext);
 
+    //Utilizamos el objeto Intl para obtener el formato moneda utilizado en Colombia
     const numberFormat = new Intl.NumberFormat('es-co', { style: 'currency', currency: 'COP' })
 
     return (
         <div>
+            {/*Dentro de un componente Box, establecemos un componente Stack para contener a 
+            cada elemento del carrito*/}
             <Box className="cart-container" >
                 <div className="cart-header">
                     <h2>Producto</h2>
@@ -52,6 +62,7 @@ const Cart = () => {
                         </>)
                     })
                     }
+                    {/* Después de todos los elementos, mostramos el total del carrito */}
                     <Box className="total-container">
                         <p>TOTAL: {numberFormat.format(totalPrice())}</p>
                     </Box>

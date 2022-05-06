@@ -1,17 +1,22 @@
 # Nutripets BARF Boyacá  :dog:
 
   Este proyecto está desarrollado para el curso React JS de Coderhouse.
-
+  
 El mismo corresponde una aplicación web de e-commerce para una empresa que vende alimentos para mascotas en el departamento de Boyacá, Colombia.
 
+## 📇 Índice
+
  - [🛠️ Construido con...](../../../nutripets-barf#%EF%B8%8F-construido-con)
+ - [⚙️Funcionamiento](../../../nutripets-barf#%EF%B8%8Ffuncionamiento)
+ - [🧬Estructura del proyecto](../../../#estructura-del-proyecto)
+
 
 ## 🛠️ Construido con...
 Este proyecto fue construido con las siguientes herramientas:
 
  - Framework Javascript: [Node.js](https://nodejs.org/es/)
- - Framework web: [React.js](https://es.reactjs.org/) 
- - Freamework diseño: [Material UI](https://mui.com/)
+ - Librería web: [React.js](https://es.reactjs.org/) 
+ - Librería diseño: [Material UI](https://mui.com/)
 
 ## ⚙️Funcionamiento
 Esta aplicación permite al usuario realizar el siguiente circuito:
@@ -51,16 +56,13 @@ A su vez, incluye las siguientes funciones que permiten manejar el comportamient
 ### 🧩Components
  - **Cart**: muestra el detalle de la compra, agrupando por producto, la cantidad, el subtotal, etc. También permite eliminar cada elemento del carrito.
  - **CategoriesButton**: muestra un Menu con una opción por cada categoría de productos.
- - **EmptyCart**: 
- - **Item**:
- - **ItemCount**:
- - **ItemDetail**:
- - **ItemList**:
- - **LinearIndeterminate**:
- - **Modal**:
- - **NavBar**:
- - **OrderReceipt**:
- - **ShoppingCartWidget**:
-
- 
-
+ - **EmptyCart**:  muestra un aviso de que el carrito está vacío y un botón 
+ - **Item**: muestra un resumen de un producto.
+ - **ItemCount**: selector de cantidad del producto a añadir al carrito (límite inferior 1 límite superior: stock) y permite incorporar al carrito el elemento.
+ - **ItemDetail**: muestra el detalle con todas la información del producto y permite añadirlo al carrito desde el ItemCount incluído.
+ - **ItemList**: muestra el listado de todos los productos o los de determinada categoría en función de los parámetros pasados.
+ - **LinearIndeterminate**: muestra una línea que va avanzando como indicador de carga.
+ - **Modal**: base para implementar dialogs.
+ - **NavBar**: corresponde al header de la página, incluyendo el brand, y el menú (compuesto por un botón de inicio
+ - **OrderReceipt**: muestra la confirmación de la compra.
+ - **ShoppingCartWidget**: muestra el ícono del carrito de compras con la cantidad de elementos diferentes que contiene. Permite mostrar el detalle del contenido del carrito, así como también eliminar elementos del mismo o finalizar la compra.

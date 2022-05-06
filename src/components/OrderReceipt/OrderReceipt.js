@@ -1,3 +1,4 @@
+//Style
 import './OrderReceipt.css';
 
 const OrderReceipt = ({successOrder}) => {

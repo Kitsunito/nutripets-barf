@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
+//Components
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+
 //Style
 import './EmptyCart.css'
 

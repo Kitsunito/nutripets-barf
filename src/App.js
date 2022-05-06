@@ -3,7 +3,6 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 //Components
 import NavBar from './components/NavBar/NavBar';
-import Footer from './components/Footer/Footer'
 
 //Pages
 import NotFound from './pages/NotFound/NotFound'
@@ -29,7 +28,6 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <Footer />
         </BrowserRouter>
       </CartProvider>
     </div>

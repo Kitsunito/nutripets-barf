@@ -1,10 +1,14 @@
+//Components
 import CardMUI from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import './Item.css';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { Link } from "react-router-dom";
+
+//Style
+import './Item.css';
+
 
 const Item = ({product}) => {
     

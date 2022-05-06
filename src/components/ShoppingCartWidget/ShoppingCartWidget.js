@@ -1,5 +1,10 @@
+//Hooks 
 import { useState, useContext } from 'react'
-import { Link } from 'react-router-dom';
+
+//Contexts
+import CartContext from '../../context/CartContext';
+
+//Components
 import Badge from '@mui/material/Badge';
 import Stack from '@mui/material/Stack';
 import Menu from '@mui/material/Menu';
@@ -8,31 +13,44 @@ import Divider from '@mui/material/Divider';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
-import CartContext from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+
+//Style
 import "./ShoppingCartWidget.css"
 
 
 const CartWidget = () => {
 
     const { cartProducts, removeProduct } = useContext(CartContext);
-    const [anchorEl, setAnchorEl] = useState(null);
+    
     const open = Boolean(anchorEl);
+
+    //-----States-----
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    //-----Functions-----
+    /*Esta función permite desplegar el Menu en función de hacer click*/
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+
+    /*Esta función maneja el cierre del Menu*/
     const handleClose = () => {
         setAnchorEl(null);
     };
 
+    //Utilizamos el objeto Intl para establecer el formato de moneda en Pesos Colombianos.
     const numberFormat = new Intl.NumberFormat('es-co', { style: 'currency', currency: 'COP' })
 
     return (
         <div className='cart-button'>
             <Stack spacing={3} direction="row" className='shopping-cart-badge'>
-                <Badge 
+                {/*Mostramos el número de ítems distintos en el carrito en una Badge*/}
+                <Badge
                     badgeContent={cartProducts.length} 
                     className="shopping-cart-quantity"
                     color="warning">
+                    {/*Utilizamos el ícono como elemento con el evento que despliegue el Menu*/}
                     <ShoppingCartRoundedIcon
                         onClick={handleClick}
                         fontSize="medium"
@@ -82,7 +100,9 @@ const CartWidget = () => {
             >
                 <h3>Carrito de Compras</h3>
                 <Divider />
-                {cartProducts.map( (cartProduct) => {
+                {
+                //Mostramos un MenuItem por cada elemento que tenga el carrito
+                cartProducts.map( (cartProduct) => {
                     return(
                         <MenuItem className='item-cart-modal' key={cartProduct.id}>
                             <div className='item-cart-modal__img'>
@@ -109,6 +129,7 @@ const CartWidget = () => {
                 })}
                 <Divider />
                 <div className='footer-modal-cart'>
+                    {/*Mostramos un botón que nos permite finalizar la compra*/}
                     <Button variant="contained" className="btn-custom"><Link to="/cart">Ir a la caja</Link></Button>
                 </div>
             </Menu>

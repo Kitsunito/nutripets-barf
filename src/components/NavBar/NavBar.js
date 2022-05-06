@@ -1,10 +1,17 @@
-import { useContext, useState } from 'react';
+//Hooks 
+import { useContext } from 'react';
+
+//Contexts
+import CartContext from '../../context/CartContext';
+
+//Components
 import Button from '@mui/material/Button';
-import './NavBar.css';
 import CartWidget from '../ShoppingCartWidget/ShoppingCartWidget';
 import CategoriesButton from '../CategoriesButton/CategoriesButton'
 import { Link} from 'react-router-dom';
-import CartContext from '../../context/CartContext';
+
+//Style
+import './NavBar.css';
 
 export default function NavBar(props) {
 
@@ -31,11 +38,16 @@ export default function NavBar(props) {
                     </li>
                 </ul>
                 <div className="area-profile">
-                    {cartProducts.length ? 
+                    {
+                    //Validamos que el vector CartProducts tenga elementos
+                    cartProducts.length ?
+                                        //De ser así, mostramos el CartWidget
                                         <div className="profile-section">
                                             <CartWidget />
                                         </div>
-                    : ""
+                    : 
+                        //En caso contrario, no mostramos nada.
+                        ""
                     }
                 </div>
             </nav>

@@ -1,16 +1,26 @@
+//Hooks 
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import ItemDetail from "../../components/ItemDetail/ItemDetail";
-import {useParams} from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
-import db from "../../services/firebase";
+import { useNavigate, useParams } from 'react-router-dom';
+
+//Components
 import LinearIndeterminate from '../../components/LinearIndeterminate/LinearIndeterminate';
+import ItemDetail from "../../components/ItemDetail/ItemDetail";
+import db from "../../services/firebase";
+
+//Services
+import { doc, getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
+    
     const { id }  = useParams();
-    const [product, setProduct] = useState({});
     const navigate = useNavigate();
 
+    //-----States-----
+    const [product, setProduct] = useState({});
+    
+    //-----Functions-----
+    /*Esta función busca un documento en la BD de Firebase de Productos
+    según el ID obtenido desde los parámetros*/
     const getProduct = async() => {
         const docRef = doc(db, "productos", id);
         const docSnap = await getDoc(docRef);
@@ -24,13 +34,17 @@ const ItemDetailContainer = () => {
         }
     }
 
+    //----Effects-----
     useEffect(() => {
         getProduct()
     },[id])
 
     const {name, category, presentation, price, stock, description, image} = product;
+
     return (
+            //Validamos que la key name contenga un valor
             name ? (
+                    //En caso positivo, renderizamos el componente ItemDetail obtenido anteriormente
                     <ItemDetail
                         key = {id}
                         id = {id}
@@ -42,6 +56,7 @@ const ItemDetailContainer = () => {
                         description={description}
                         image={image} />
             ) : (
+                //En caso negativo, mostramos el componente LinearIndeterminate
                 <LinearIndeterminate />
             )
     )
